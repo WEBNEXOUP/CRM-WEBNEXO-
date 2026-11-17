@@ -1,0 +1,592 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Webnexo CRM — design system (base visual do CRM Avant)
+ * Azul + laranja de destaque, vidro, brilho sutil e modo escuro.
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --font-display: "Sora", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-brand: var(--brand);
+  --color-brand-foreground: var(--brand-foreground);
+  --color-brand-deep: var(--brand-deep);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --shadow-card: 0 1px 2px oklch(0.33 0.09 262 / 0.06), 0 8px 24px oklch(0.33 0.09 262 / 0.06);
+  --shadow-panel: 0 24px 60px oklch(0.25 0.08 262 / 0.18);
+}
+
+:root {
+  --radius: 0.75rem;
+  --background: oklch(0.97 0.014 266);
+  --foreground: oklch(0.24 0.07 265);
+  --card: oklch(1 0 0 / 0.78);
+  --card-foreground: oklch(0.24 0.07 265);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.24 0.045 262);
+  --primary: oklch(0.54 0.2 265);
+  --primary-foreground: oklch(0.985 0.005 250);
+  --brand: oklch(0.54 0.2 265);
+  --brand-foreground: oklch(0.985 0.005 250);
+  --brand-deep: oklch(0.27 0.086 264);
+  --secondary: oklch(0.955 0.011 254);
+  --secondary-foreground: oklch(0.32 0.075 263);
+  --muted: oklch(0.958 0.008 254);
+  --muted-foreground: oklch(0.52 0.045 262);
+  --accent: oklch(0.68 0.17 55);
+  --accent-foreground: oklch(0.99 0.005 90);
+  --destructive: oklch(0.577 0.225 25);
+  --destructive-foreground: oklch(0.985 0.005 250);
+  --success: oklch(0.62 0.15 155);
+  --success-foreground: oklch(0.99 0.005 150);
+  --warning: oklch(0.79 0.15 78);
+  --warning-foreground: oklch(0.28 0.06 60);
+  --border: oklch(0.28 0.08 265 / 0.12);
+  --input: oklch(0.28 0.08 265 / 0.16);
+  --ring: oklch(0.54 0.2 265);
+  --chart-1: oklch(0.54 0.2 265);
+  --chart-2: oklch(0.71 0.171 58);
+  --chart-3: oklch(0.55 0.09 245);
+  --chart-4: oklch(0.62 0.15 155);
+  --chart-5: oklch(0.74 0.05 258);
+  --sidebar: oklch(0.985 0.006 260 / 0.8);
+  --sidebar-foreground: oklch(0.32 0.05 262);
+  --sidebar-primary: oklch(0.68 0.17 55);
+  --sidebar-primary-foreground: oklch(0.99 0.005 90);
+  --sidebar-accent: oklch(0.93 0.03 262);
+  --sidebar-accent-foreground: oklch(0.24 0.06 262);
+  --sidebar-border: oklch(0.9 0.015 260);
+  --sidebar-ring: oklch(0.68 0.17 55);
+}
+
+.dark {
+  --background: oklch(0.155 0.03 265);
+  --foreground: oklch(0.96 0.008 250);
+  --card: oklch(0.22 0.045 265 / 0.72);
+  --card-foreground: oklch(0.96 0.008 250);
+  --popover: oklch(0.235 0.042 263);
+  --popover-foreground: oklch(0.96 0.008 250);
+  --primary: oklch(0.67 0.17 264);
+  --primary-foreground: oklch(0.14 0.03 262);
+  --brand: oklch(0.67 0.17 264);
+  --brand-foreground: oklch(0.15 0.03 262);
+  --brand-deep: oklch(0.22 0.05 263);
+  --secondary: oklch(0.29 0.045 263);
+  --secondary-foreground: oklch(0.96 0.008 250);
+  --muted: oklch(0.29 0.045 263);
+  --muted-foreground: oklch(0.72 0.03 255);
+  --accent: oklch(0.78 0.15 65);
+  --accent-foreground: oklch(0.16 0.03 60);
+  --destructive: oklch(0.65 0.19 25);
+  --destructive-foreground: oklch(0.98 0.005 250);
+  --success: oklch(0.68 0.14 155);
+  --success-foreground: oklch(0.16 0.03 150);
+  --warning: oklch(0.79 0.15 78);
+  --warning-foreground: oklch(0.2 0.04 60);
+  --border: oklch(1 0 0 / 12%);
+  --input: oklch(1 0 0 / 16%);
+  --ring: oklch(0.67 0.17 264);
+  --chart-1: oklch(0.67 0.17 264);
+  --chart-2: oklch(0.71 0.171 58);
+  --chart-3: oklch(0.6 0.1 245);
+  --chart-4: oklch(0.68 0.14 155);
+  --chart-5: oklch(0.7 0.04 258);
+  --sidebar: oklch(0.17 0.032 263);
+  --sidebar-foreground: oklch(0.9 0.02 255);
+  --sidebar-primary: oklch(0.71 0.171 58);
+  --sidebar-primary-foreground: oklch(0.16 0.03 60);
+  --sidebar-accent: oklch(0.25 0.045 263);
+  --sidebar-accent-foreground: oklch(0.96 0.008 250);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.71 0.171 58);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    font-feature-settings: "cv11", "ss01";
+    font-variant-numeric: tabular-nums lining-nums;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.015em;
+  }
+}
+
+@utility surface-panel {
+  position: relative;
+  background-color: color-mix(in oklab, var(--color-card) 78%, transparent);
+  border: 1px solid color-mix(in oklab, var(--color-border) 80%, transparent);
+  border-radius: var(--radius-2xl);
+  box-shadow: var(--shadow-card), inset 0 1px 0 oklch(1 0 0 / 0.35);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+  animation: panel-in 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+@keyframes panel-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px) scale(0.985);
+  }
+}
+
+@utility glow-ring {
+  box-shadow: 0 0 0 1px color-mix(in oklab, var(--color-primary) 45%, transparent),
+    0 0 24px -4px color-mix(in oklab, var(--color-primary) 55%, transparent);
+}
+
+@utility brand-gradient {
+  background-image: linear-gradient(135deg, var(--brand-deep) 0%, var(--brand) 65%, color-mix(in oklab, var(--brand) 72%, white) 100%);
+}
+
+:root {
+  --nexo-navy: oklch(0.2 0.07 265);
+  --nexo-blue: oklch(0.6 0.2 255);
+  --nexo-orange: oklch(0.7 0.19 45);
+  --nexo-ink: oklch(0.25 0.03 260);
+  --gradient-nexo: linear-gradient(135deg, oklch(0.2 0.07 265), oklch(0.32 0.14 262) 55%, oklch(0.5 0.2 255));
+}
+
+@theme inline {
+  --color-nexo-navy: var(--nexo-navy);
+  --color-nexo-blue: var(--nexo-blue);
+  --color-nexo-orange: var(--nexo-orange);
+  --color-nexo-ink: var(--nexo-ink);
+}
+
+@utility nexo-gradient {
+  background-image: var(--gradient-nexo);
+}
+
+/* ===== Visual futurista: fundo ambiente, vidro e brilho sutil (mantém as cores atuais) ===== */
+body {
+  min-height: 100vh;
+  min-height: 100dvh;
+  background-image:
+    radial-gradient(60rem 36rem at 12% -10%, color-mix(in oklab, var(--primary) 16%, transparent), transparent 70%),
+    radial-gradient(48rem 30rem at 100% 0%, color-mix(in oklab, var(--accent) 12%, transparent), transparent 70%),
+    radial-gradient(40rem 28rem at 60% 110%, color-mix(in oklab, var(--primary) 10%, transparent), transparent 70%);
+  background-attachment: fixed;
+}
+
+.dark body {
+  background-image:
+    radial-gradient(60rem 36rem at 10% -10%, color-mix(in oklab, var(--primary) 28%, transparent), transparent 70%),
+    radial-gradient(46rem 30rem at 100% 0%, color-mix(in oklab, var(--accent) 16%, transparent), transparent 70%),
+    radial-gradient(40rem 28rem at 55% 110%, color-mix(in oklab, var(--primary) 18%, transparent), transparent 70%);
+}
+
+.dark .surface-panel {
+  box-shadow: 0 1px 0 oklch(1 0 0 / 0.06) inset, 0 16px 40px -18px oklch(0 0 0 / 0.6);
+}
+
+@media (hover: hover) {
+  .surface-panel:hover {
+    border-color: color-mix(in oklab, var(--primary) 40%, var(--color-border));
+  }
+  .dark .surface-panel:hover {
+    box-shadow: 0 1px 0 oklch(1 0 0 / 0.08) inset, 0 16px 40px -18px oklch(0 0 0 / 0.6),
+      0 0 28px -12px color-mix(in oklab, var(--primary) 60%, transparent);
+  }
+}
+
+
+::selection {
+  background: color-mix(in oklab, var(--primary) 30%, transparent);
+}
+
+:focus-visible {
+  outline: 2px solid color-mix(in oklab, var(--ring) 75%, transparent);
+  outline-offset: 2px;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: color-mix(in oklab, var(--muted-foreground) 40%, transparent) transparent;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
+
+@keyframes draw {
+  from {
+    stroke-dashoffset: 1;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+}
+
+/* Números de destaque (KPIs) */
+@utility kpi-number {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  font-variant-numeric: tabular-nums lining-nums;
+  line-height: 1.1;
+}
+
+/* Barras de progresso existentes ganham brilho */
+[role="progressbar"] > div {
+  box-shadow: 0 0 12px color-mix(in oklab, var(--primary) 70%, transparent);
+  transition-duration: 1.2s;
+}
+
+/* Fundo com grade fina (como na prévia) */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.35;
+  background-image:
+    linear-gradient(var(--border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse at 50% 0%, #000 0%, transparent 70%);
+  -webkit-mask-image: radial-gradient(ellipse at 50% 0%, #000 0%, transparent 70%);
+}
+
+/* Entrada em sequência: os cartões vão "se construindo" */
+.surface-panel:nth-child(2), [data-glow]:nth-child(2) { animation-delay: 0.07s; }
+.surface-panel:nth-child(3), [data-glow]:nth-child(3) { animation-delay: 0.14s; }
+.surface-panel:nth-child(4), [data-glow]:nth-child(4) { animation-delay: 0.21s; }
+.surface-panel:nth-child(5), [data-glow]:nth-child(5) { animation-delay: 0.28s; }
+.surface-panel:nth-child(6), [data-glow]:nth-child(6) { animation-delay: 0.35s; }
+.surface-panel:nth-child(7), [data-glow]:nth-child(7) { animation-delay: 0.42s; }
+.surface-panel:nth-child(n + 8), [data-glow]:nth-child(n + 8) { animation-delay: 0.5s; }
+
+/* ---------- Responsividade (celular e tablet) ---------- */
+html {
+  -webkit-text-size-adjust: 100%;
+  overflow-x: clip;
+}
+body {
+  overflow-x: clip;
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+}
+img,
+video,
+canvas,
+svg {
+  max-width: 100%;
+}
+/* Campos com 16px no celular evitam o zoom automático do iOS ao focar. */
+@media (max-width: 767px) {
+  input:not([type="checkbox"]):not([type="radio"]):not([type="range"]),
+  textarea,
+  select,
+  [role="combobox"] {
+    font-size: 16px !important;
+  }
+  /* Alvos de toque confortáveis */
+  button:not([class*=" h-"]):not([class^="h-"]):not([class*="max-sm:"]),
+  [role="tab"] {
+    min-height: 36px;
+  }
+  .kpi-number {
+    font-size: clamp(1.25rem, 6vw, 1.75rem);
+    line-height: 1.1;
+  }
+  .surface-panel {
+    border-radius: 1rem;
+  }
+  /* Efeitos pesados desligados no celular para fluidez */
+  body::after {
+    opacity: 0.18;
+  }
+  .surface-panel {
+    backdrop-filter: blur(8px);
+  }
+}
+/* Tablet: aproveita melhor a largura */
+@media (min-width: 768px) and (max-width: 1023px) {
+  main {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+/* Tabelas largas rolam na horizontal sem quebrar a página */
+.overflow-x-auto {
+  -webkit-overflow-scrolling: touch;
+}
+
+/* ===== Ajustes finais de responsividade (celular e tablet) ===== */
+img, video, canvas, svg { max-width: 100%; }
+@media (max-width: 1023px) {
+  /* textos longos nunca estouram o cartão */
+  h1, h2, h3, p, td, th, label { overflow-wrap: anywhere; }
+  /* tabelas largas rolam dentro do próprio cartão, nunca a página inteira */
+  .surface-panel table { min-width: 100%; }
+}
+@media (max-width: 639px) {
+  /* respeita a barra de gestos do celular */
+  body { padding-bottom: env(safe-area-inset-bottom); }
+  [role="dialog"] { max-width: calc(100vw - 1rem); }
+}
+
+/* ===== Celular e tablet: toque fácil, sem rolagem para o lado ===== */
+html,
+body {
+  overflow-x: clip;
+}
+main {
+  min-width: 0;
+}
+
+/* Áreas de toque de pelo menos 44px em telas de dedo */
+@media (pointer: coarse) {
+  button:not([role="checkbox"]):not([role="switch"]):not([role="radio"]):not([data-compact]),
+  [role="tab"],
+  [role="menuitem"],
+  [role="option"],
+  summary {
+    min-height: 44px;
+  }
+  button[data-compact] {
+    min-height: 36px;
+  }
+  /* botões só com ícone ficam quadrados e fáceis de acertar */
+  button[aria-label]:not([role="checkbox"]):not([role="switch"]):not([role="radio"]):not([data-compact]) {
+    min-width: 44px;
+  }
+  input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"]),
+  select,
+  [role="combobox"] {
+    min-height: 44px;
+  }
+  /* caixas e interruptores mantêm o tamanho, mas ganham área de toque maior */
+  [role="checkbox"],
+  [role="switch"],
+  [role="radio"] {
+    position: relative;
+  }
+  [role="checkbox"]::after,
+  [role="switch"]::after,
+  [role="radio"]::after {
+    content: "";
+    position: absolute;
+    inset: -12px;
+  }
+}
+
+/* Tabelas viram cartões no celular (ver ResponsiveTables) */
+@media (max-width: 767px) {
+  main table:not([role]) {
+    min-width: 0 !important;
+    width: 100% !important;
+    display: block;
+  }
+  main table:not([role]) thead {
+    display: none;
+  }
+  main table:not([role]) tbody,
+  main table:not([role]) tfoot {
+    display: block;
+    width: 100%;
+  }
+  main table:not([role]) tr {
+    display: block;
+    margin-bottom: 0.65rem;
+    padding: 0.4rem 0.8rem;
+    border: 1px solid var(--border);
+    border-radius: 0.9rem;
+    background: color-mix(in oklab, var(--card) 70%, transparent);
+  }
+  main table:not([role]) td,
+  main table:not([role]) th {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    width: 100%;
+    padding: 0.4rem 0 !important;
+    border: 0 !important;
+    text-align: right;
+  }
+  main table:not([role]) td[data-label]::before {
+    content: attr(data-label);
+    flex-shrink: 0;
+    max-width: 45%;
+    text-align: left;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: var(--muted-foreground);
+  }
+  main table:not([role]) td:not([data-label]) {
+    justify-content: flex-start;
+    text-align: left;
+  }
+}
+
+/* Tablet: só as tabelas muito largas (800px+) também viram cartões */
+@media (min-width: 768px) and (max-width: 1023px) {
+  main table:not([role])[class*="min-w-[8"] {
+    min-width: 0 !important;
+    width: 100% !important;
+    display: block;
+  }
+  main table:not([role])[class*="min-w-[8"] thead {
+    display: none;
+  }
+  main table:not([role])[class*="min-w-[8"] tbody,
+  main table:not([role])[class*="min-w-[8"] tfoot {
+    display: block;
+    width: 100%;
+  }
+  main table:not([role])[class*="min-w-[8"] tr {
+    display: block;
+    margin-bottom: 0.65rem;
+    padding: 0.4rem 0.8rem;
+    border: 1px solid var(--border);
+    border-radius: 0.9rem;
+    background: color-mix(in oklab, var(--card) 70%, transparent);
+  }
+  main table:not([role])[class*="min-w-[8"] td,
+  main table:not([role])[class*="min-w-[8"] th {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    width: 100%;
+    padding: 0.4rem 0 !important;
+    border: 0 !important;
+    text-align: right;
+  }
+  main table:not([role])[class*="min-w-[8"] td[data-label]::before {
+    content: attr(data-label);
+    flex-shrink: 0;
+    max-width: 45%;
+    text-align: left;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: var(--muted-foreground);
+  }
+  main table:not([role])[class*="min-w-[8"] td:not([data-label]) {
+    justify-content: flex-start;
+    text-align: left;
+  }
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  main table:not([role])[class*="min-w-[9"] {
+    min-width: 0 !important;
+    width: 100% !important;
+    display: block;
+  }
+  main table:not([role])[class*="min-w-[9"] thead {
+    display: none;
+  }
+  main table:not([role])[class*="min-w-[9"] tbody,
+  main table:not([role])[class*="min-w-[9"] tfoot {
+    display: block;
+    width: 100%;
+  }
+  main table:not([role])[class*="min-w-[9"] tr {
+    display: block;
+    margin-bottom: 0.65rem;
+    padding: 0.4rem 0.8rem;
+    border: 1px solid var(--border);
+    border-radius: 0.9rem;
+    background: color-mix(in oklab, var(--card) 70%, transparent);
+  }
+  main table:not([role])[class*="min-w-[9"] td,
+  main table:not([role])[class*="min-w-[9"] th {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    width: 100%;
+    padding: 0.4rem 0 !important;
+    border: 0 !important;
+    text-align: right;
+  }
+  main table:not([role])[class*="min-w-[9"] td[data-label]::before {
+    content: attr(data-label);
+    flex-shrink: 0;
+    max-width: 45%;
+    text-align: left;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: var(--muted-foreground);
+  }
+  main table:not([role])[class*="min-w-[9"] td:not([data-label]) {
+    justify-content: flex-start;
+    text-align: left;
+  }
+}
